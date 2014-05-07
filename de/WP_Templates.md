@@ -6,6 +6,15 @@ Note: Ziel ist es, die Code-Qualität in WordPress-Projekten zu verbessern und f
 Dadurch verbessert sich die Laufzeit von Projekten und spätere Erweiterungen können schneller vorgenommen werden.
 
 
+Mike Pretzlaw
+
+[![x](http://www.code-x.de/wp-content/uploads/Kreativ-256x115.png)](http://code-x.de)
+
+für code-x GmbH
+
+[bit.ly/cx-mvc](http://bit.ly/cx-mvc)
+
+
 ## Beispiel
 
 
@@ -144,6 +153,7 @@ und die Daten dem Format entsprechend verarbeitet werden.
 - Reagiert z.B. auf DOING_AJAX
 
 
+
 ## Programmierung
 
 
@@ -158,9 +168,11 @@ und die Daten dem Format entsprechend verarbeitet werden.
 Zum Beispiel `shortcodeName.phtml`:
 
 ```
-<article>
-    <meter min="0" max="1" value="<?php echo $progress ?>">Fortschritt</meter>
-</article>
+<div>
+    <meter value="<?php echo $progress ?>">
+        Quote
+    </meter>
+</div>
 ```
 
 
@@ -188,6 +200,27 @@ function shortcodeFunction() {
     return ob_get_clean();
 }
 ```
+
+
+### Was tun?
+
+Aus "Quote" soll "50%" werden
+
+```
+function shortcodeFunction() {
+    $progress = "0.5";
+
+    include __DIR__ . '/shortcodeName.phtml';
+}
+```
+
+```
+<meter value="<?php echo $progress ?>">
+    Quote
+</meter>
+```
+
+
 
 Note: Besonders wichtig ist hier, dass **get** (also: `ob_get_clean()`) und *nicht* `ob_end_clean()` benutzt wird.
 Andernfalls kann es dazu kommen, dass garnichts mehr ausgegeben wird.
