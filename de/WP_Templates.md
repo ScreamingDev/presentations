@@ -49,27 +49,33 @@ Ist das sauberer?
 ### Was ist anders?
 
 
-| Downloadbereich       | Vorher | Nachher |
-|-----------------------|--------|---------|
-| Aufwand zum Erstellen |   4 h  |    -    |
-| Aufwand für Änderung  |   4 h  |    -    |
-| Responsive            | ja     | ja      |
-| Mobile Version        | ja     | ja      |
+| Downloadbereich          | Vorher | Nachher |
+|--------------------------|--------|---------|
+| Aufwand zum Erstellen    |   4 h  |    1 h  |
+| Aufwand für Bugfix       |   1 h  |   15 m  |
+| Aufwand für Erweiterung  |   8 h  |    2 h  |
 
 Note: Es musste eine einfache HTML-Änderung gemacht werden.
 Allerdings waren die Daten so schlecht aufbereitet, dass die Datenstruktur verändert werden musste.
 Folglich war es schneller alles auszulagern (in eine PHTML) und die Daten neu zu holen,
 als die Änderung mit dem bestehenden Code zu machen.
+ In vielen Fällen sorgt eine Erweiterung des Codes für ein Quasi-Refactoring,
+was an sich sehr viel Zeit kostet, vor allem wenn von einer dritten Person durchgeführt.
+Mit einem MVC-Pattern, lassen sich die zu ändernden Stellen nicht nur schneller identifizieren,
+sondern auch leicht Erweitern und ändern.
 
 
 | Konfigurator            | Zeit  |
 |-------------------------|-------|
 | System verstehen        | 5 m   |
 | HTML-Änderung vornehmen | 1 m   |
+| Testen im Browser       | 2 m   |
+| QS und Mails schreiben  | 2 m   |
 
 Note: Das System für den Konfigurator ist bereits im MVC-Sinn aufgebaut.
 Es musste eine einfache Anpassung gemacht werden, zu dem der passende View schnell gefunden war.
 Das HTML so zu ändern, wie es sein soll war viel einfacher als sich durch Ketten von Strings zu hangeln.
+Im Endeffekt hat alles länger gedauert, als die Änderung selbst - MVC sei Dank!
 
 
 ### Bugs
@@ -109,7 +115,42 @@ Es heißt nicht, dass die Logiken dem Design folgen müssen und dessen logische 
 (wie etwa die Anzahl und Aufteilung der `<span>` oder `<div>` Elemente).
 
 
+### Model
+
+- Ein Model beherbergt alle Daten
+- Es führt z.B. Queries aus
+- Posts etc. werden dort bezogen
+- MySQL, CSV, XML, Dateisystem
+
+Note: Im Grunde kann hier jede Art von Persistenz genutzt werden.
+Es müssen lediglich die Methoden zum beziehen von Daten zur Verfügung stehen.
+
+
+### View
+
+- Kümmert sich um die Darstellung
+- XML, HTML, CSV, JSON, ...
+
+Note: Auch hier lassen sich beliebige Ausgabeformate wählen,
+sofern die nötigen Methoden vorhanden sind
+und die Daten dem Format entsprechend verarbeitet werden.
+
+
+### Controller
+
+- Behandelt logiken
+    - Bezieht die Daten
+    - Wählt den passenden View
+- Reagiert z.B. auf DOING_AJAX
+
+
 ## Programmierung
+
+
+### Ein Model
+
+- Ist in WordPress fast schon gegeben
+- WP_Query und/oder WP_Post
 
 
 ### Ein View / Template
@@ -134,6 +175,7 @@ function shortcodeFunction() {
     include __DIR__ . '/shortcodeName.phtml';
 }
 ```
+
 
 Indirekt / in variable Speichern:
 
