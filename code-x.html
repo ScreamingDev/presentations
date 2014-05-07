@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Mike Pretzlaw</title>
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme">
+
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+    <style>
+        body {
+            background: -moz-radial-gradient(center, circle cover,  rgba(255,255,255,0) 0%, rgba(120,205,35,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(120,205,35,1))); /* Chrome,Safari4+ */
+            background: -webkit-radial-gradient(center, circle cover,  rgba(255,255,255,0) 0%,rgba(120,205,35,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-radial-gradient(center, circle cover,  rgba(255,255,255,0) 0%,rgba(120,205,35,1) 100%); /* Opera 12+ */
+            background: -ms-radial-gradient(center, circle cover,  rgba(255,255,255,0) 0%,rgba(120,205,35,1) 100%); /* IE10+ */
+            background: radial-gradient(circle at center,  rgba(255,255,255,0) 0%,rgba(120,205,35,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#78cd23',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <div class="slides">
+
+        <!-- Use external markdown resource, separate slides by three newlines; vertical slides by two newlines -->
+        <section data-markdown="de/WP_Templates.md"
+                 data-separator="^\n\n\n"
+                 data-vertical="^\n\n"
+                 data-notes="^Note\:"></section>
+
+    </div>
+</div>
+
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+
+<script>
+
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'reveal.js/plugin/notes/notes.js' }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
