@@ -102,7 +102,6 @@ die Anzeige von Inhalten und die Verwaltung der Kommunikation zwischen allem von
 Die Grundregeln sind:
 
 - Form follows function
--
 
 Note:
 Das bedeutet, dass das Design erst nach dem Erstellen aller Funktionen/Logiken gemacht wird.
