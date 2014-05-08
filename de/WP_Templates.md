@@ -116,12 +116,55 @@ die Anzeige von Inhalten und die Verwaltung der Kommunikation zwischen allem von
 
 Die Grundregeln sind:
 
-- Form follows function
+- Form follows function (#fff)
+- View nach Model (push-Prinzip)
+- Kontrollstrukturen sehen (nicht) anders aus
 
 Note:
 Das bedeutet, dass das Design erst nach dem Erstellen aller Funktionen/Logiken gemacht wird.
 Es heißt nicht, dass die Logiken dem Design folgen müssen und dessen logische Auszeichnung berücksichtigen muss
 (wie etwa die Anzahl und Aufteilung der `<span>` oder `<div>` Elemente).
+
+
+```
+<body>
+    <?php if ($foo): ?>
+        Cool!
+    <?php elseif ($bar): ?>
+        Meh!
+    <?php else: ?>
+        Rambazamba!
+    <?php endif; ?>
+</body>
+```
+
+```
+<ul>
+    <?php for ($i = 1; $i < 10; $i++): ?>
+        <li><?php echo $i ?></li>
+    <?php endforeach; ?>
+</ul>
+```
+
+```
+<ul>
+    <?php foreach ($data as $foo): ?>
+        <li><?php echo $foo ?></li>
+    <?php endforeach; ?>
+</ul>
+```
+
+```
+<ul>
+    <?php while ($foo = $mysql->getRow()): ?>
+        <li><?php echo $foo ?></li>
+    <?php endwhile; ?>
+</ul>
+```
+
+Note: Die Kontrollstrukturen sollten im "Template" nicht mit geschweiften Klammern,
+sondern mit Doppelpunkt und Schlüsselwort beschrieben werden.
+Zu `}` ist es schwer den Anfang zu finden, während z.B. `endforeach` schon ein Hinweis auf den Kop der Schleife ist.
 
 
 ### Model
