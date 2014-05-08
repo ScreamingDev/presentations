@@ -190,7 +190,7 @@ und die Daten dem Format entsprechend verarbeitet werden.
 
 ### Controller
 
-- Behandelt logiken
+- Behandelt Logiken
     - Bezieht die Daten
     - Wählt den passenden View
 - Reagiert z.B. auf DOING_AJAX
@@ -253,7 +253,9 @@ Aus "Quote" soll "50%" werden
 function shortcodeFunction() {
     $progress = "0.5";
 
+    ob_start();
     include __DIR__ . '/shortcodeName.phtml';
+    return ob_get_clean();
 }
 ```
 
@@ -262,8 +264,6 @@ function shortcodeFunction() {
     Quote
 </meter>
 ```
-
-
 
 Note: Besonders wichtig ist hier, dass **get** (also: `ob_get_clean()`) und *nicht* `ob_end_clean()` benutzt wird.
 Andernfalls kann es dazu kommen, dass garnichts mehr ausgegeben wird.
