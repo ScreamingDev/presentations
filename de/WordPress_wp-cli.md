@@ -6,10 +6,22 @@ WordPress Shell Tool
 
 ## Scaffold
 
-Schnell mal was erstellen
+> "to scaffold" (engl.): mit einem Gerüst versehen
+
+Note: Scaffold steht in der Programmierung für etwas,
+dass ein Grundgerüst zu einem bestimmten Kontext aufbaut.
+Während ein sogenanntes "Skeleton" immer starr ist
+und nur für eine Sache gedacht,
+kann das Skeleton für etwas bestimmtes stehen:
 
 
-### Underscores Themes
+- Ein (Child-)Theme
+- Ein Plugin
+- Ein Post-Type
+- Eine Taxonomie
+
+
+### Eigene Underscores-Themes
 
 > Eine Themevorlage für "alle" Browser.
 
