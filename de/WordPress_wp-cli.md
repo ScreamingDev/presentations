@@ -11,7 +11,7 @@ Schnell mal was erstellen
 
 ### Underscores Themes
 
-Die Themevorlage für alle Browser
+> Die Themevorlage für alle Browser.
 
 
 Was ist Underscores?
