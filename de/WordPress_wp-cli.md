@@ -14,8 +14,8 @@ Schnell mal was erstellen
 > Eine Themevorlage für "alle" Browser.
 
 
-- Ein "nacktes" Theme
-- [Underscores](http://underscores.me/) (c) ist von Automattic geschrieben
+- [Underscores](http://underscores.me/) ist ein "nacktes" Theme
+- Es ist von Automattic geschrieben
 - Benutzt einen [CSS-Reset](http://meyerweb.com/eric/tools/css/reset/index.html)
   und [CSS-Normalisierung](http://necolas.github.com/normalize.css/)
 - Basiert auf [Blueprint](http://www.blueprintcss.org/)
