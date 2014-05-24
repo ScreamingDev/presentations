@@ -6,7 +6,8 @@ WordPress Shell Tool
 
 ## Scaffold
 
-> "to scaffold" (engl.): mit einem Gerüst versehen
+> to scaffold (engl).
+> "mit einem Gerüst versehen"
 
 Note: Scaffold steht in der Programmierung für etwas,
 dass ein Grundgerüst zu einem bestimmten Kontext aufbaut.
@@ -53,6 +54,7 @@ Vorteile gegenüber Bootstrap:
 - Gutes Grid-System
 - An kein JS-Framework gebunden
 - Keine zusätzlichen Dateien
+
 
 Nachteile gegenüber Bootstrap:
 
