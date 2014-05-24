@@ -11,10 +11,8 @@ Schnell mal was erstellen
 
 ### Underscores Themes
 
-> Die Themevorlage für alle Browser.
+> Eine Themevorlage für "alle" Browser.
 
-
-Was ist Underscores?
 
 - Ein "nacktes" Theme
 - [Underscores](http://underscores.me/) (c) ist von Automattic geschrieben
