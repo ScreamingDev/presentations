@@ -19,7 +19,7 @@ Was ist Underscores?
 - Ein "nacktes" Theme
 - [Underscores](http://underscores.me/) (c) ist von Automattic geschrieben
 - Benutzt einen [CSS-Reset](http://meyerweb.com/eric/tools/css/reset/index.html)
-- Nutzt eine [CSS-Normalisierung](http://necolas.github.com/normalize.css/)
+  und [CSS-Normalisierung](http://necolas.github.com/normalize.css/)
 - Basiert auf [Blueprint](http://www.blueprintcss.org/)
 
 Note: Das Underscores Theme ist eine Theme-Vorlage, die sehr "nackt" ist und somit viele
