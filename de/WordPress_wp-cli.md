@@ -46,6 +46,27 @@ welches wie das bekanntere Bootstrap von Twitter verschiedene Klassen zur Verfü
 mit denen ein Design auf die schnelle umgesetzt werden kann.
 
 
+Vorteile gegenüber Bootstrap:
+
+- Support zu Photoshop, Adobe Air
+- Vorlagen für Illustrator und Fireworks
+- Gutes Grid-System
+- An kein JS-Framework gebunden
+- Keine zusätzlichen Dateien
+
+Nachteile gegenüber Bootstrap:
+
+- _s verwendet keine CSS-Meta-Sprache
+- Keine Klassiker wie Navbar etc.
+- [Bootstrap](www.getbootstrap.com/) ist bekannter
+
+Note: Die Nachteile gegenüber Bootstrap sehen natürlich gewichtiger aus,
+da Bootstrap durch LESS sehr dynamisch wird und auch wenn _s ein besseres Grid-System bietet,
+fehlen die klassischen Web-Elemente wie die Navigation, Menüs, Breadcrumbs und viele mehr.
+Trotz dessen ist Underscores nicht an jQuery gebunden
+und wird nicht überladen durch zusätzliche Icons oder eigenes JavaScript.
+
+
 #### Erstellen eines neuen Themes
 
     wp scaffold _s MeinTheme --activate \
