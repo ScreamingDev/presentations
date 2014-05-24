@@ -47,14 +47,14 @@ welches wie das bekanntere Bootstrap von Twitter verschiedene Klassen zur Verfü
 mit denen ein Design auf die schnelle umgesetzt werden kann.
 
 
-Nachteile gegenüber Bootstrap:
+Nachteile von Blueprint gegenüber Bootstrap:
 
-- _s verwendet keine CSS-Meta-Sprache
+- Blueprint verwendet keine CSS-Meta-Sprache
 - Keine Klassiker wie Navbar etc.
 - [Bootstrap](www.getbootstrap.com/) ist bekannter
 
 
-Vorteile gegenüber Bootstrap:
+Vorteile von Blueprint gegenüber Bootstrap:
 
 - Support zu Photoshop, Adobe Air
 - Vorlagen für Illustrator und Fireworks
@@ -62,7 +62,7 @@ Vorteile gegenüber Bootstrap:
 - An kein JS-Framework gebunden
 - Keine zusätzlichen Dateien
 
-Note: Die Nachteile gegenüber Bootstrap sehen natürlich gewichtiger aus,
+Note: Die Nachteile von Blueprint gegenüber Bootstrap sehen natürlich gewichtiger aus,
 da Bootstrap durch LESS sehr dynamisch wird und auch wenn _s ein besseres Grid-System bietet,
 fehlen die klassischen Web-Elemente wie die Navigation, Menüs, Breadcrumbs und viele mehr.
 Trotz dessen ist Underscores nicht an jQuery gebunden
