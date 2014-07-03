@@ -57,7 +57,7 @@ Zum Beispiel je Git-Aktion ein Ziel setzen:
 Verfügbare Tools:
 
 - [git-ftp](https://github.com/simonwhitaker/gibo) ist ein Deployment-Tool
-- 
+
 
 #### Vor dem Deployment
 
