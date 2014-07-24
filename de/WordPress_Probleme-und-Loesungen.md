@@ -5,10 +5,38 @@
 ## Welche Ansätze gibt es?
 
 
+- Shortcodes
 - Post-Type
 - Meta-Felder
 - Taxonomie
 - Template Hierarchie
+
+
+### Shortcodes
+
+    add_shortcode( 'foobar', function () {
+        return "foo and bar";
+    });
+    
+Ein Shortcode kann sein
+
+- Fremde Inhalte aus RSS
+- YouTube-Videos
+- Autos aus Carzilla
+- Designelemente
+
+
+Im Allgemeinen also
+
+- Einbindung eines Drittanbieters
+- Physische Textauszeichnungen
+
+
+Die Nachteile für den Kunden sind
+
+- Unverständlich für Kunden
+- Leicht Fehleranfällig im TinyMCE
+
 
 
 ### Post-Type
@@ -33,7 +61,7 @@ Ein Post-Type kann sein
 - ...
 
 
-Im  allgemeinen also
+Im Allgemeinen also
 
 - eine Entität von Dingen
 - Zusammenfassung von sinnverwandten "Gegenständen"
@@ -46,6 +74,27 @@ und ein Bereich für Detailtext hat,
 können Meta-Angaben
 und eine eigene Taxonomie das Ganze erweitern
 und pflegbarer gestalten.
+
+
+Das Gute für den Kunden ist
+
+- Verständlich für den Kunden
+- Wohlbekannt durch Analogien
+
+Note: Mit dem Anlegen solcher Entitäten,
+wie z.B. Häuser, Projekte, Produkte
+kann die Gedankenwelt des Kunden viel besser abgebildet werden.
+Da mit immer wiederkehrenden Strukturen (Blog-Post, Seite) 
+die Welt eines Kunden dargestellt wird,
+kann er sich leichter in sein eigenes neues CMS einarbeiten,
+als dass Shortcodes
+oder Zaubereien mit eigenen Listen
+und Detailansichten gebastelt werden.
+
+
+Die Nachteile für den Kunden sind
+
+
 
 
 ### Meta-Felder
@@ -70,7 +119,7 @@ Ein Meta-Feld kann beinhalten ...
 - ...
 
 
-Im allgemeinen also
+Im Allgemeinen also
 
 - Eigenschaften eines Post-Types
 - Merkmale, zum Unterscheiden von anderen
@@ -78,6 +127,28 @@ Im allgemeinen also
 Note: Mit einem Meta-Attribut können also allerlei Charakteristika
 in einem Post-Type gespeichert werden,
 um diesen reichhaltige Informationen mitzugeben.
+
+
+Das Gute für den Kunden ist
+
+- Verständlich für den Kunden
+- Wohlbekannt durch Analogien
+
+Note: Mit dem Erweitern der Entitäten,
+um die für Kunden relevanten Felder,
+wie z.B. Laufzeit, Preis, Größe etc.
+kann die Gedankenwelt des Kunden noch besser abgebildet werden.
+Da die zusätzlichen Felder (zu Blog-Post, Seiten und CPT) 
+immer wieder vorkommen und an der gleichen Stelle zu finden sind,
+kann der Endnutzer sich leichter in WordPress einfinden,
+als dass Shortcodes genutzt werden
+oder die Eigenschaften unter wilden Einstellungsmöglichkeiten
+wiederzufinden ist.
+
+
+Die Nachteile für den Kunden sind
+
+
 
 
 ### Template-Hierarchie
@@ -92,6 +163,24 @@ Eine Template-Hierarchie hilft bei ...
 - Übersicht über Post-Types
 - Besondere Page-Templates
 - Allerlei Möglichkeiten mit PHP
+
+
+Das Gute für den Kunden ist
+
+- Kaum Fehleranfällig
+
+Note: Der Kunde kann nur mit dem nötigen Wissen
+etwas an den Templates ändern,
+womit fehleranfällige Änderungen durch ihn ausgeschlossen sind.
+
+
+Die Nachteile für den Kunden sind
+
+- Kaum pflegbar
+
+Note: Leider kann der Kunde bei Templates
+nicht selbst Änderungen vornehmen
+und benötigt immer wieder die Hilfe seiner Agentur.
 
 
 
