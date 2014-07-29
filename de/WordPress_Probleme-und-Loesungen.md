@@ -17,6 +17,7 @@
     add_shortcode( 'foobar', function () {
         return "foo and bar";
     });
+
     
 Ein Shortcode kann sein
 
@@ -92,11 +93,6 @@ oder Zaubereien mit eigenen Listen
 und Detailansichten gebastelt werden.
 
 
-Die Nachteile für den Kunden sind
-
-
-
-
 ### Meta-Felder
 
     add_action('add_meta_boxes', function () {
@@ -146,11 +142,6 @@ oder die Eigenschaften unter wilden Einstellungsmöglichkeiten
 wiederzufinden ist.
 
 
-Die Nachteile für den Kunden sind
-
-
-
-
 ### Template-Hierarchie
 
 
@@ -182,6 +173,81 @@ Note: Leider kann der Kunde bei Templates
 nicht selbst Änderungen vornehmen
 und benötigt immer wieder die Hilfe seiner Agentur.
 
+
+## Und was ist mit uns?
+
+Note: Wir haben bisher nur die Vor- und Nachteile für den Kunden
+beleuchtet,
+müssen uns aber auch fragen was für eine Agentur am besten geeignet ist.
+
+
+
+### Strukturen und Richtlinien
+
+
+- CodeStyle-Richtlinien von WordPress
+- Gutes Gerüst für Pfadangaben
+
+Note: Es gibt von der WordPress-Community
+und auch bei Automattic selbst bereits Vorgaben
+wie der Code aussehen soll.
+Das heißt es sind CodeStyle-Richtlinien im Umlauf die mindestens
+und immer erfüllt sein sollten,
+wenn mehrere Leute an einem Projekt arbeiten
+oder das Werk eines Tages an eine andere Agentur weitergegeben werden
+soll.
+Besteht dann noch ein ordentliches Design,
+was die Ordnerstruktur angeht,
+in dem sich jeder Programmierer schnell zurecht findet,
+dann ist ein wahres Meisterwerk entstanden.
+Somit ist es auch ein No-Go bei seinem neuen Template den Vorgaben
+von Automattic mit Objektorientierung
+und vielen Spielereien mit zig Unterordnern abzuweichen,
+da sich hier jeder Programmierer immer wieder neu reindenken muss.
+
+
+Beispiel für eine Plugin-Struktur:
+
+- plugin_name\ ("code-x // Markötter // Basis")
+  - language\
+  - cpt\
+    - partner.php
+  - meta-field\
+  - shortcode\
+    - code_name_ist_dateiname.php
+    - code_name_ist_dateiname.phtml
+  - taxonomy\
+    
+Note: In dem Language-Ordner verbergen sich die Übersetzungen für das
+Plug-In,
+so wie es bei jedem Plug-In von WordPress der Fall ist.
+Darüber hinaus gibt es sprechende Ordner,
+deren Name bereits zeigt was seine Inhalte sind.
+Im Allgemeinen existiert eine Datei mit dem selben Namen wie
+der Shortcode, das Meta-Field oder der Custom-Post-Type
+als ".php"-Datei.
+Soll mit dem Shortcode oder bei dem Meta-Field noch etwas angezeigt
+werden,
+dann gibt es auch eine zugehörige ".phtml"-Datei.
+Mit diesem System ist eine derart für sich selbst sprechende Struktur
+gegeben,
+so dass in einem Blick auch die Funktionalitäten des Plug-In
+eingefangen werden können.
+
+
+Beispiel für ein Shortcode:
+
+    function cx_plugin_name_shortcode_name() {
+      // ...
+    }
+
+
+Beispiel für CSS:
+
+    .foo div {
+        font-size: 12pt;
+        border: 1px solid #affffe;
+    }
 
 
 ## Beispiele für Probleme
