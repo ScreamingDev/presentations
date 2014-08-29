@@ -177,3 +177,41 @@ welche dann sogar von anderen Skripten nutzbar ist
 oder leicht ausgetauscht werden kann,
 wenn zum Beipiel alles als Tabelle
 anstelle einer Aufzählung ausgegeben werden soll.
+
+
+### Ganz wichtige Sachen
+
+  h3.klein {
+    font-size: 26px !important;
+  }
+
+Note: Es ist durchaus legitim
+in manchen Fällen "!important" zu benutzen,
+allerdings spricht es mehr für folgende Sachen:
+
+
+- Falschen Stelle für diese Regel
+- Überschreiben wird schwer
+
+Note: Wann immer `!important` benutzt wird
+sollte sich der Entwickler fragen,
+warum er es dort benutzen muss,
+damit seine Änderungen wirken.
+Es ist oftmals eine viel zu frühe Stelle,
+an welcher die CSS-Regel gemacht wird,
+so dass spätere Regeln mit dem wichtigen "important"
+ausgehebelt werden müssen.
+Steht das Design dann,
+wird es beim nächsten Mal schwer diese Regel wieder zu überschreiben,
+falls sich wieder etwas am Design ändern wird.
+
+
+- Bessere Stelle suchen
+- CSS aufräumen
+
+Note: Es ist viel besser eine geeignete Stelle
+für die eigene neue Regel zu finden,
+so dass "important" nicht mehr notwendig ist.
+Trifft sich keine
+und der Code strotzt nur so vor "important"-Regeln,
+dann ist es an der Zeit die CSS aufzuräumen.
