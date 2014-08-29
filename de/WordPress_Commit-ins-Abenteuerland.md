@@ -143,3 +143,37 @@ Besser sich an die Umgebung oder WordPress-Standards halten:
 
 ```
 
+
+### Verwursten
+
+  $ausgabe .= '<div class="more">';
+  $ausgabe .= '<a href="'.$target.'">'.$title.'</a>';
+  $ausgabe .= '</div>';
+
+
+- Verwursten von PHP und HTML
+- Die Eingabe vom Patchwork dauert
+
+Note: HTML in PHP Strings zu betten ist der unleserlichste
+und für spätere Änderungen nervigste Weg,
+welcher nur vorstellbar ist.
+Zumal das Erstellen von einem solchen Puzzle
+circa doppelt so lange benötigt,
+wie der optimalste Weg:
+
+
+- PHP in HTML einbetten
+- Das Ganze auslagern
+
+    ob_start();
+    include 'ausgabe.phtml';
+    $ausgabe = ob_get_clean();
+    
+Note: Es kann PHP in HTML eingebettet werden,
+was deutlich leserlicher ist.
+Noch besser wäre es aber die Anzeige auszulagern
+in eien eigene PHTML-Datei,
+welche dann sogar von anderen Skripten nutzbar ist
+oder leicht ausgetauscht werden kann,
+wenn zum Beipiel alles als Tabelle
+anstelle einer Aufzählung ausgegeben werden soll.
