@@ -13,6 +13,24 @@
 - Commit ist unnötig groß
 
 
+- Commit modular halten
+
+
+> Showing 1 changed file with 60 additions and 18 deletions
+> wp-content/plugins/zoom-widget/elements/parseTheme.css 
+
+
+- Nicht im Theme arbeiten
+- Nicht im Plugin arbeiten
+- Ein Update überbügelt alles
+
+
+- Child-Theme nutzen
+- Theme duplizieren
+- Eignes Plugin schreiben, fremdes nutzen
+- Plugin duplizieren
+
+
 ## Commit-Meldungen
 
 
