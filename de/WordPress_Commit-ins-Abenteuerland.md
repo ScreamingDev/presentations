@@ -3,6 +3,7 @@
 > Das Coden kostet den Verstand
 
 
+
 ## Commits generell
 
 
@@ -43,7 +44,15 @@
 > Word!
 
 
+
 ## Abenteuerleiche Änderungen
+
+Note: In diesem Teil sollen Code-Beispiele aus echten Commits gegeben werden,
+welche eine Lösung des Problems darstellen,
+aber dennoch auf ihre eigene Art und Weise abenteuerlich sind.
+Es ist der Schnellschuss,
+welcher das Problem trifft
+und dennoch nicht zuträgtlich für guten Code ist.
 
 
 ### Alles was nicht gebraucht wird
