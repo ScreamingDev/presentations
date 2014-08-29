@@ -3,7 +3,19 @@
 > Das Coden kostet den Verstand
 
 
-## Magische Zahlen
+## Commit-Meldungen
+
+
+### Word!
+
+
+> Authored by Mike Pretzlaw 3 days ago
+> 1 parent 9abd4f5123
+> Exists in master
+> Word!
+
+
+### Magische Zahlen
 
 
 ```
@@ -29,7 +41,7 @@ $parent_page = $post->post_parent;
 ```
 
 
-## Stilbrüche
+### Stilbrüche
 
 
 ```
