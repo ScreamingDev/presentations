@@ -43,6 +43,32 @@
 > Word!
 
 
+## Abenteuerleiche Änderungen
+
+
+### Alles was nicht gebraucht wird
+
+
+  <?php /*
+    <div class="sidebar-post-meta">
+      <?php the_time( get_option( 'date_format' ) ); ?> | <?php the_author(); ?>
+    </div>
+  */ ?>
+
+
+- Code wird unnötig aufgebläht
+
+Note: Wenn eine Funktion oder ein Design nicht genutzt wird,
+dann sollte diese vollständig herausgelöscht werden.
+Es bläht den Code nach mehreren Änderungen zu sehr auf
+und stört nur beim Lesen vom Quelltext.
+
+
+- GIT hat den Code immernoch
+
+Note: Das VCS kümmert sich darum,
+dass die ursprünglichen Inhalte nicht verloren gehen.
+
 ### Magische Zahlen
 
 
