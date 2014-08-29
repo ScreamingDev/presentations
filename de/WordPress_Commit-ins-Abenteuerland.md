@@ -37,11 +37,9 @@
 
 ### Word!
 
-
-> Authored by Mike Pretzlaw 3 days ago
-> 1 parent 9abd4f5123
-> Exists in master
 > Word!
+
+> Startseite
 
 
 
