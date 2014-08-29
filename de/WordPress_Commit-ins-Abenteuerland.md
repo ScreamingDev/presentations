@@ -3,6 +3,16 @@
 > Das Coden kostet den Verstand
 
 
+## Commits generell
+
+
+> Plugin: Revolution Slider, Google Maps, Testimonials Widget & Duplicate Post
+
+
+- Revert eines einzelnen geht nicht
+- Commit ist unnötig groß
+
+
 ## Commit-Meldungen
 
 
