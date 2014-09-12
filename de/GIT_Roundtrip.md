@@ -1,19 +1,17 @@
 # GIT Roundtrip
 
-Einmal quer das Projekt
+Einmal quer durch das Projekt
 
-Note: Ziel ist es, den Umgang mit GIT in einem exemplarischen Roundtrip zu zeigen,
+Note: Ziel ist es,
+den Umgang mit GIT in einem exemplarischen Roundtrip zu zeigen,
 welcher dem allgemein üblichen Workflow entspricht.
 
 
 Mike Pretzlaw
+(@fxrmp)
 
-[![x](http://www.code-x.de/wp-content/uploads/Kreativ-256x115.png)](http://code-x.de)
-
-für code-x GmbH
-
-[bit.ly/cx-git-conflict](http://bit.ly/cx-git-conflict)
-
+Auch bei GitHub zum nach-/mitlesen:
+[sourcerer-mike/presentations](https://github.com/sourcerer-mike/presentations)
 
 
 # Projekt erstellen und verwalten
@@ -48,16 +46,8 @@ Dieser "Verstoß" gegen den Workflow muss natürlich gelöst werden.
 
 
 - Änderungen des Unbekannten wegspeichern
-- Neuerungen im Repo holen
-- Änderungen des Anderen wiederholen
+- Neuerungen in das Repo holen
 - Bei Misserfolg benachrichtigen
-
-Note: So kann ein Entwickler, welcher auf das Problem stößt,
-schnell wieder für eine solche Ordnung sorgen,
-so dass er seine eigenen Änderungen holen kann.
-Der Fehler beim Pull wird durch Zwischenspeicherung umgangen
-und die eigenen Änderungen werden eingespielt.
-Die Befehle hierfür sind:
 
 
 ```
@@ -69,17 +59,10 @@ git pull
 git stash apply
 ```
 
-Note: Bei dem letzten Befehl könnte es dazu kommen,
-dass GIT abermals die Arbeit verweigert.
-Dies ist nicht weiter schlimm,
-denn dabei handelt es sich um die fremden Änderungen.
-Natürlich wollen wir den Urheber darüber informieren
-und senden eine Mail an ihn (oder auch an alle):
-
 
 ```
 git stash show -p | \
-mail -s "`pwd` Änderungen verworfen" mike@code-x.de
+mail -s "Deine Änderungen wurden verworfen" mike@code-x.de
 ```
 
 Note: Im Grunde sollte es nicht Aufgabe eines anderen Entwicklers sein,
@@ -89,5 +72,30 @@ Hier ist vielmehr der Urheber dieser Zeilen gefragt,
 da er über die Funktionalität genau bescheid weiß und was zu ändern war.
 
 
+## Live-Änderungen per FTP bereinigen
+
+Note: Leider gibt es auch Projekte,
+die keinen SSH-Zugang besitzen
+und somit per FTP abgeglichen werden müssen.
+
+- Abgleich per `wget`
+- Änderungen holen
+- Testen und ab ins Repo
 
 
+`nano ~/bin/fcp` - als `fcp` per Terminal aufrufbar:
+
+```
+#!/bin/bash
+
+echo -n "Host with path (no ftp://): "
+read HOSTPATH
+
+echo -n "User    : "
+read USER
+
+echo -n "Password: "
+read -s PASSWORD
+
+wget -r --ftp-password=$PASSWORD --ftp-user=$USER ftp://$HOSTPATH
+```
