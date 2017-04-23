@@ -139,12 +139,7 @@ Das heißt, falls eure Anwendung komplett zusammenbricht, weil eine Funktion nic
 - `WP_Term_Query` achtet nun auf `meta_value_num`
 
 
-```
-$responses = wp_remote_get( [
-    [ 'http://api.example.org/artists/Coheed.json', [ 'timeout' => 2 ] ],
-    [ 'http://api.example.org/artists/Cambria.json', [ 'timeout' => 2 ] ]
-] );
-```
+![](https://www.cloudways.com/blog/wp-content/uploads/WordPress-4.6-Beta-1-3.png)
 
 
 - Parallele HTTP Requests
@@ -176,14 +171,20 @@ Dinge wie `$string['foo']` waren bisher möglich, schmeißen in PHP 7.1 allerdin
 WordPress reagiert in seiner Version 7.6 darauf (https://core.trac.wordpress.org/ticket/37071).
 
 
-![](https://www.cloudways.com/blog/wp-content/uploads/WordPress-4.6-Beta-1-3.png)
+```
+$responses = wp_remote_get( [
+    [ 'http://api.example.org/artists/Coheed.json', [ 'timeout' => 2 ] ],
+    [ 'http://api.example.org/artists/Cambria.json', [ 'timeout' => 2 ] ]
+] );
+```
 
 
 ![](https://www.cloudways.com/blog/wp-content/uploads/sfd.png)
 
 
 
-## Das kommt in WordPress 4.7 und später
+## WordPress >= 4.7
+
 
 - `get_post_by_*()` Funktionen
 - Nativer gettext-Support vs "wp-includes/l10n.php"
