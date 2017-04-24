@@ -47,13 +47,21 @@ bzw. der Anlage zur "technischen und organisatorischen Maßnahmen",
 vorgeschrieben ist.
 
 
+### Docker ist (k)ein Hypervisor
+
+![](img/hypervisor.png)
+
+
 ### Wie sieht das Ziel aus?
+
+![](img/infrastruktur.png)
+
 
 |               | DEV           | TEST/CI   | STAGING   | LIVE
 | -------       |-------------  |---------- |---------- |---------
 | **System**    | "Schlimmste"  | Mehrere   | Wie Live  | Mit Sync
 | **Daten**     | Generiert     | Generiert | Sync      | Master
-| **SSH**       | -             | Ja        | Ja        | Ja
+| **SSH**       | -             | Jein      | Ja        | Ja
 | **Mails**     | Lokal         | @team     | @kunde    | Normal
 | **Diff**      | XDebug        | Logging   | Bytecache | Cluster?
 
@@ -78,13 +86,15 @@ vorgeschrieben ist.
 - Namen kollidieren
 
 
-### Weitere Spielerei mit Docker
+### Weitere Spielereien
 
-- Backups
-- fail2ban (Host)
-- eigene IP (ästhetik)
-- nginx Demux
+- Backups (vgl. Volumes)
+- fail2ban (Host vs. STDOUT)
+- IP-Adresse (Ästhetik)
+- nginx (Demux)
+- SSD (Gesundheit)
 
+  Dies ist nicht Teil des Vortrags.
 
 
 ## Docker Compose
@@ -93,6 +103,179 @@ vorgeschrieben ist.
 <i class="em em-kiss"></i>
 <i class="em em-angry"></i>
 <i class="em em-confused"></i>
+
+> Ein ständiges hin und her.
+
+
+### Entwickler-Alltag
+
+```
+git clone git.example.org:foo/bar.git
+docker-compose up -d
+bin/composer install
+```
+
+
+http://127.0.0.1
+
+![](img/chrome-wordpress.png)
+
+
+### "Ist das einfach!"
+
+docker-compose.yml
+
+```bash
+version: '3'
+services:
+    php:
+        image: pretzlaw/wordpress:5.3-apache
+    db:
+        image: mysql:5.7
+```
+
+
+Mit `docker-compose up -d` starten
+
+```bash
+Creating network "wcber_default" with the default driver
+
+Pulling php (pretzlaw/wordpress:5.3-apache)...
+ebe41ea51f73: Already exists
+743b94e2fe85: Already exists
+ce0eb5818e6e: Already exists
+f62aa1121c7d: Already exists
+8162a1e7a296: Already exists
+70d01ae3f6a5: Already exists
+778960dbdb32: Already exists
+5d464f217287: Pull complete
+086979306e7e: Pull complete
+3159e31744e2: Pull complete
+Status: Downloaded newer image for pretzlaw/wordpress:5.3-apache
+
+Creating wcber_php_1
+Creating wcber_db_1
+```
+
+  Neue Images holen ist Vergleichbar mit dem holen neuer Composer-Pakete.
+Zwischenschichten (Pakete), die bereits heruntergeladen worden,
+können wiederverwendet werden.
+
+
+Mit `docker-compose ps` angucken
+
+```bash
+   Name                 Command             State    Ports  
+-----------------------------------------------------------
+wcber_db_1    docker-entrypoint.sh mysqld   Exit 1          
+wcber_php_1   /entrypoint.sh                Up      80/tcp
+```
+
+
+Fehlersuche per `docker-compose logs`
+
+```bash
+$ docker-compose logs db
+
+Attaching to wcber_db_1
+db_1   | error: database is uninitialized 
+db_1   |   You need to specify one of MYSQL_ROOT_PASSWORD,
+           MYSQL_ALLOW_EMPTY_PASSWORD
+           and MYSQL_RANDOM_ROOT_PASSWORD
+```
+
+
+### RTFM? Kann ich! (nicht)
+
+```yaml
+version: "3"
+services:
+    php:
+        image: pretzlaw/wordpress:5.3-apache
+    db:
+        image: mysql:5.7
+        
+        # DB Setup
+        environment:
+            - MYSQL_DATABASE=wcber
+            - MYSQL_USER=wcber
+            - MYSQL_PASSWORD=wcber
+            - MYSQL_ROOT_PASSWORD=
+            - MYSQL_ALLOW_EMPTY_PASSWORD=1
+```
+
+
+### Unter welcher URL läuft das?
+
+Mit `docker-compose exec` rein:
+
+```
+$ docker-compose exec php bash
+
+root@f00bd1e99c47:/var/www# hostname --all-ip-address
+172.21.0.2
+```
+
+
+![](img/apache-forbidden.png)
+
+
+### Wie? Kein WordPress!?
+
+Projekt rein mounten:
+
+```yml
+    php:
+        image: pretzlaw/wordpress:5.3-apache
+        
+        # Projekt in den container
+        volumes:
+            - ./wp:/var/www/html
+            
+    db:
+        image: mysql:5.7
+        environment:
+            - MYSQL_DATABASE=wcber
+            - MYSQL_USER=wcber
+            - MYSQL_USER_HOST=%
+            - MYSQL_PASSWORD=wcber
+            - MYSQL_ROOT_PASSWORD=
+            - MYSQL_ALLOW_EMPTY_PASSWORD=1
+```
+
+  Immer Verzeichnisst mit "./" beginnen,
+da alles andere als Volumename interpretiert wird.
+
+
+![](img/wp-db.png)
+
+
+![](img/wp-install.png)
+
+
+![](img/docker-bridge.png)
+
+
+### Arbiträre IPs - bah!
+
+```
+    php:
+        image: pretzlaw/wordpress:5.3-apache
+        volumes:
+            - ./wp:/var/www/html
+        links:
+            - db
+            
+        # Host :8000 leitet auf :80 weiter
+        ports:
+            - "8000:80"
+```
+
+
+
+
+
+
 
 
 ### Wie bekomme ich die Interfaces weg?
@@ -138,6 +321,13 @@ $ docker network rm ...
 ```
 
 
+### Wie lösche ich Docker Volumes?
+
+```bash
+$ docker volume ls -f dangling=true
+$ docker volume rm $(docker volume ls -qf dangling=true)
+```
+
 
 ## Docker
 
@@ -145,3 +335,11 @@ $ docker network rm ...
 <i class="em em-construction"></i>
 <i class="em em-hand"></i>
 <i class="em em-cookie"></i>
+
+
+
+## Links und Meinungen
+
+
+- [Docker und phpStorm - Tja, so mehr so geht so!](https://blog.jetbrains.com/phpstorm/2015/10/docker-support-in-phpstorm/)
+
